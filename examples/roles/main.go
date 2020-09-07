@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	webexteams "github.com/jbogarin/go-cisco-webex-teams/sdk"
+	webexteams "github.com/t0st/go-cisco-webex-teams/sdk"
 )
 
 // Client is Webex Teams API client
