@@ -1,6 +1,7 @@
 package webexteams
 
 import (
+	"encoding/json"
 	"fmt"
 	"strings"
 	"time"
@@ -15,12 +16,18 @@ type MessagesService service
 
 // MessageCreateRequest is the Create Message Request Parameters
 type MessageCreateRequest struct {
-	RoomID        string   `json:"roomId,omitempty"`        // Room ID.
-	ToPersonID    string   `json:"toPersonId,omitempty"`    // Person ID (for type=direct).
-	ToPersonEmail string   `json:"toPersonEmail,omitempty"` // Person email (for type=direct).
-	Text          string   `json:"text,omitempty"`          // Message in plain text format.
-	Markdown      string   `json:"markdown,omitempty"`      // Message in markdown format.
-	Files         []string `json:"files,omitempty"`         // File URL array.
+	RoomID        string       `json:"roomId,omitempty"`        // Room ID.
+	ToPersonID    string       `json:"toPersonId,omitempty"`    // Person ID (for type=direct).
+	ToPersonEmail string       `json:"toPersonEmail,omitempty"` // Person email (for type=direct).
+	Text          string       `json:"text,omitempty"`          // Message in plain text format.
+	Markdown      string       `json:"markdown,omitempty"`      // Message in markdown format.
+	Files         []string     `json:"files,omitempty"`         // File URL array.
+	Attachments   []Attachment `json:"attachments,omitempty"`
+}
+
+type Attachment struct {
+	Type    string           `json:"contentType,omitempty"`
+	Content *json.RawMessage `json:"content,omitempty"`
 }
 
 // Message is the Message definition
