@@ -1,7 +1,6 @@
 package webexteams
 
 import (
-	"encoding/json"
 	"fmt"
 	"strings"
 	"time"
@@ -26,8 +25,8 @@ type MessageCreateRequest struct {
 }
 
 type Attachment struct {
-	Type    string           `json:"contentType,omitempty"`
-	Content *json.RawMessage `json:"content,omitempty"`
+	Type    string `json:"contentType,omitempty"`
+	Content string `json:"content,omitempty"`
 }
 
 // Message is the Message definition
